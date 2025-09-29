@@ -1,0 +1,497 @@
+<mxfile host="drawio.corp.amazon.com" modified="2025-08-29T09:54:35.177Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" etag="tHCbkZTVYq516RCdAJb0" version="21.7.4" type="device">
+  <diagram name="Complete-AIDLC-Workflow" id="complete-workflow">
+    <mxGraphModel dx="1522" dy="692" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="common-container" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="54" y="214" width="2700" height="284" as="geometry" />
+        </mxCell>
+        <mxCell id="common-title" value="Common AI-DLC Flow (All Projects)" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="74" y="234" width="300" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="req-ai-1" value="AI: Ask Requirements Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="104" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="req-human-1" value="P: Answer Requirements" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="284" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="req-ai-2" value="AI: Generate Requirements Document" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="464" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="story-ai-1" value="AI: Ask Story Planning Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="644" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="story-human-1" value="P: Answer Story Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="824" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="story-ai-2" value="AI: Generate User Stories" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1004" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-ai-1" value="AI: Ask Architecture Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1184" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-human-1" value="P: Choose Architecture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1364" y="284" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-decision" value="Modular Monolith or Microservices?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1564" y="264" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="req-ai-1" target="req-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="req-human-1" target="req-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="req-ai-2" target="story-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="story-ai-1" target="story-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="story-human-1" target="story-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="story-ai-2" target="arch-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="arch-ai-1" target="arch-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="common-arrow-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="arch-human-1" target="arch-decision" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-container" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;strokeColor=#d79b00;strokeWidth=3;dashPattern=5 5;" parent="1" vertex="1">
+          <mxGeometry x="50" y="720" width="995" height="747" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-title" value="Modular Monolith Flow" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="180" y="727" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-ai-1" value="AI: Ask Design Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-human-1" value="P: Answer Design Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="280" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-ai-2" value="AI: Generate Domain Model &amp; Module Matrix" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="460" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-ai-3" value="AI: Generate Design Artifacts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="640" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-ai-4" value="AI: Create Module Story Map" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="820" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-ai-1" value="AI: Ask NFR Questions (Shared)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="880" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-human-1" value="P: Answer NFR Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="280" y="880" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-ai-2" value="AI: Setup Folder Structure &amp; Tech Stack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="460" y="880" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-ai-3" value="AI: Configure Deployment &amp; Infrastructure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="640" y="880" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-module-title" value="For Each Module:" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="100" y="980" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-biz-ai-1" value="AI: Generate Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1020" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-biz-ai-2" value="AI: Generate Business Unit Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="280" y="1020" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-biz-human-1" value="P: Review &amp; Test Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="460" y="1020" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-ai-1" value="AI: Generate API Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-ai-2" value="AI: Generate API Unit Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="280" y="1120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-ai-3" value="AI: Integrate API with Business" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="460" y="1120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-human-1" value="P: Test API Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="640" y="1120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-ai-1" value="AI: Generate Database Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1220" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-ai-2" value="AI: Generate DB Unit Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="280" y="1220" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-ai-3" value="AI: Generate Data Scripts &amp; Secrets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="460" y="1220" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-ai-4" value="AI: Integrate DB with Full Stack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="640" y="1220" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-human-1" value="P: Test Complete Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="820" y="1220" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-complete-ai" value="AI: Summarize Module &amp; Deploy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1320" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-complete-human" value="P: Test Deployed Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="280" y="1320" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-loop-decision" value="More Modules?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1300" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-done" value="Modular Monolith Complete" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="680" y="1310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-container" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;strokeWidth=3;dashPattern=5 5;" parent="1" vertex="1">
+          <mxGeometry x="1450" y="720" width="993" height="858" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-title" value="Microservices Flow" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1470" y="740" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-split-ai-1" value="AI: Ask Unit Splitting Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-split-human-1" value="P: Answer Unit Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-split-ai-2" value="AI: Generate Units of Work &amp; Dependencies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-design-ai-1" value="AI: Generate Unit Domain Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="860" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-design-ai-2" value="AI: Generate Unit API Spec" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="860" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-design-ai-3" value="AI: Create Unit Story Map" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="860" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-unit-title" value="For Each Unit (Independent Teams):" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1630" y="943" width="250" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-ai-1" value="AI: Ask Unit NFR Questions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="990" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-human-1" value="P: Answer Unit NFRs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="990" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-ai-2" value="AI: Setup Unit Tech Stack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="990" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-ai-3" value="AI: Configure Unit Deployment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="2040" y="990" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-biz-ai-1" value="AI: Generate Unit Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="1090" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-biz-ai-2" value="AI: Generate Unit Business Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="1090" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-biz-human-1" value="P: Review Unit Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="1090" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-ai-1" value="AI: Generate Unit API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="1190" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-ai-2" value="AI: Generate Unit API Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="1190" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-ai-3" value="AI: Integrate Unit API with Business" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="1190" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-human-1" value="P: Test Unit API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="2040" y="1190" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-ai-1" value="AI: Generate Unit Database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="1290" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-ai-2" value="AI: Generate Unit DB Tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="1290" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-ai-3" value="AI: Generate Unit Data &amp; Secrets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="1290" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-ai-4" value="AI: Integrate Unit Full Stack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="2040" y="1290" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-human-1" value="P: Test Complete Unit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="2220" y="1290" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-complete-ai" value="AI: Deploy Unit as Microservice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="1390" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-complete-human" value="P: Test Deployed Microservice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1680" y="1390" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-loop-decision" value="More Units?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1880" y="1370" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-done" value="All Microservices Complete" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="2080" y="1380" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-design-ai-1" target="mono-design-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-design-human-1" target="mono-design-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-design-ai-2" target="mono-design-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-arrow-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-design-ai-3" target="mono-design-ai-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-nfr-ai-1" target="mono-nfr-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-nfr-human-1" target="mono-nfr-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-nfr-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-nfr-ai-2" target="mono-nfr-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-biz-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-biz-ai-1" target="mono-biz-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-biz-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-biz-ai-2" target="mono-biz-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-api-ai-1" target="mono-api-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-api-ai-2" target="mono-api-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-api-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-api-ai-3" target="mono-api-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-db-ai-1" target="mono-db-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-db-ai-2" target="mono-db-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-db-ai-3" target="mono-db-ai-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-db-arrow-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-db-ai-4" target="mono-db-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-complete-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-complete-ai" target="mono-complete-human" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-complete-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-complete-human" target="mono-loop-decision" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-loop-yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-loop-decision" target="mono-biz-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="1433" />
+              <mxPoint x="72" y="1433" />
+              <mxPoint x="72" y="1000" />
+              <mxPoint x="170" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mono-loop-no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-loop-decision" target="mono-done" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-design-to-nfr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-design-ai-4" target="mono-nfr-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="860" />
+              <mxPoint x="170" y="860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mono-nfr-to-biz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-nfr-ai-3" target="mono-biz-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="1000" />
+              <mxPoint x="170" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mono-biz-to-api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-biz-human-1" target="mono-api-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="1100" />
+              <mxPoint x="170" y="1100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mono-api-to-db" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-api-human-1" target="mono-db-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="1200" />
+              <mxPoint x="170" y="1200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mono-db-to-complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mono-db-human-1" target="mono-complete-ai" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="1300" />
+              <mxPoint x="170" y="1300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-split-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-split-ai-1" target="micro-split-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-split-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-split-human-1" target="micro-split-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-design-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-design-ai-1" target="micro-design-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-design-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-design-ai-2" target="micro-design-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-nfr-ai-1" target="micro-nfr-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-nfr-human-1" target="micro-nfr-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-nfr-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-nfr-ai-2" target="micro-nfr-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-biz-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-biz-ai-1" target="micro-biz-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-biz-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-biz-ai-2" target="micro-biz-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-api-ai-1" target="micro-api-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-api-ai-2" target="micro-api-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-api-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-api-ai-3" target="micro-api-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-db-ai-1" target="micro-db-ai-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-db-ai-2" target="micro-db-ai-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-arrow-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-db-ai-3" target="micro-db-ai-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-db-arrow-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-db-ai-4" target="micro-db-human-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-complete-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-complete-ai" target="micro-complete-human" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-complete-arrow-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-complete-human" target="micro-loop-decision" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-loop-yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="micro-loop-decision" target="micro-nfr-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1940" y="1500" />
+              <mxPoint x="1471" y="1500" />
+              <mxPoint x="1471" y="1020" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-loop-no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-loop-decision" target="micro-done" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-split-to-design" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="micro-split-ai-2" target="micro-design-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1930" y="850" />
+              <mxPoint x="1570" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-design-to-nfr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-design-ai-3" target="micro-nfr-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1930" y="970" />
+              <mxPoint x="1570" y="970" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-nfr-to-biz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-nfr-ai-3" target="micro-biz-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2110" y="1070" />
+              <mxPoint x="1570" y="1070" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-biz-to-api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-biz-human-1" target="micro-api-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1930" y="1170" />
+              <mxPoint x="1570" y="1170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-api-to-db" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-api-human-1" target="micro-db-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2110" y="1270" />
+              <mxPoint x="1570" y="1270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="micro-db-to-complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="micro-db-human-1" target="micro-complete-ai" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2290" y="1370" />
+              <mxPoint x="1570" y="1370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="decision-to-monolith" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;strokeWidth=3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="arch-decision" target="mono-design-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1644" y="634" />
+              <mxPoint x="170" y="634" />
+            </Array>
+            <mxPoint x="1640.000909090909" y="159.9431818181822" as="sourcePoint" />
+            <mxPoint x="170.000909090909" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="decision-to-microservices" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6c8ebf;strokeWidth=3;" parent="1" target="micro-split-ai-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1755" y="314" />
+              <mxPoint x="1755" y="700" />
+              <mxPoint x="1570" y="700" />
+            </Array>
+            <mxPoint x="1725" y="314" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="monolith-label" value="Modular Monolith" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#d79b00;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="796" y="602" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="microservices-label" value="Microservices" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#6c8ebf;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="1900" y="680" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-loop-yes-label" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="350" y="980" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mono-loop-no-label" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="600" y="1330" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-loop-yes-label" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1461" y="996" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-loop-no-label" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="2000" y="1400" width="30" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
