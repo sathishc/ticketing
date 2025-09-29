@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ticketing-service:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - TICKETS_TABLE_NAME=local-tickets
+      - TICKET_HISTORY_TABLE_NAME=local-ticket-history
+      - TICKET_COMMENTS_TABLE_NAME=local-ticket-comments
+      - AWS_REGION=us-east-1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    ports:
+      - "8000:8000"
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-inMemory"]

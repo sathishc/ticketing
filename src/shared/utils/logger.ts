@@ -1,19 +1,13 @@
 import winston from 'winston';
 
-const logLevel = process.env.LOG_LEVEL || 'info';
-const nodeEnv = process.env.NODE_ENV || 'development';
-
-export const logger = winston.createLogger({
-  level: logLevel,
+const logger = winston.createLogger({
+  level: process.env.LOG_LEVEL || 'info',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.errors({ stack: true }),
     winston.format.json()
   ),
-  defaultMeta: {
-    service: 'ticketing-service',
-    environment: nodeEnv,
-  },
+  defaultMeta: { service: 'ticketing-service' },
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
@@ -24,11 +18,4 @@ export const logger = winston.createLogger({
   ],
 });
 
-// Add CloudWatch transport in production
-if (nodeEnv === 'production') {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.json(),
-    })
-  );
-}
+export { logger };

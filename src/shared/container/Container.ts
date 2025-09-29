@@ -1,6 +1,8 @@
 import { DynamoDBClientWrapper } from '@shared/database/DynamoDBClient';
 import { DynamoTicketRepository } from '@modules/ticket/infrastructure/repositories/DynamoTicketRepository';
 import { DynamoTicketHistoryRepository } from '@modules/ticket/infrastructure/repositories/DynamoTicketHistoryRepository';
+import { MockTicketRepository } from '@modules/ticket/infrastructure/repositories/MockTicketRepository';
+import { MockTicketHistoryRepository } from '@modules/ticket/infrastructure/repositories/MockTicketHistoryRepository';
 import { CreateTicketUseCase } from '@modules/ticket/application/usecases/CreateTicketUseCase';
 import { UpdateTicketStatusUseCase } from '@modules/ticket/application/usecases/UpdateTicketStatusUseCase';
 import { GetTicketUseCase } from '@modules/ticket/application/usecases/GetTicketUseCase';
@@ -23,14 +25,23 @@ export class Container {
     this.register('dynamoClient', () => new DynamoDBClientWrapper());
   }
 
-  private registerRepositories(): void {
-    this.register('ticketRepository', () => 
-      new DynamoTicketRepository((this.resolve('dynamoClient') as DynamoDBClientWrapper).getDocumentClient())
-    );
+  protected registerRepositories(): void {
+    const isDevelopment = process.env.NODE_ENV === 'development';
     
-    this.register('ticketHistoryRepository', () => 
-      new DynamoTicketHistoryRepository((this.resolve('dynamoClient') as DynamoDBClientWrapper).getDocumentClient())
-    );
+    if (isDevelopment) {
+      // Use mock repositories for local development and testing
+      this.register('ticketRepository', () => new MockTicketRepository());
+      this.register('ticketHistoryRepository', () => new MockTicketHistoryRepository());
+    } else {
+      // Use DynamoDB repositories for production
+      this.register('ticketRepository', () => 
+        new DynamoTicketRepository((this.resolve('dynamoClient') as DynamoDBClientWrapper).getDocumentClient())
+      );
+      
+      this.register('ticketHistoryRepository', () => 
+        new DynamoTicketHistoryRepository((this.resolve('dynamoClient') as DynamoDBClientWrapper).getDocumentClient())
+      );
+    }
   }
 
   private registerServices(): void {

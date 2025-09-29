@@ -14,7 +14,7 @@ export class DynamoDBClientWrapper {
       marshallOptions: {
         convertEmptyValues: false,
         removeUndefinedValues: true,
-        convertClassInstanceToMap: false,
+        convertClassInstanceToMap: true,
       },
       unmarshallOptions: {
         wrapNumbers: false,
