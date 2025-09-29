@@ -12,8 +12,7 @@
 - [x] Phase 1: Requirements Assessment
 - [x] Phase 2: Story Planning
 - [x] Phase 3: Story Development
-- [ ] Phase 3: Story Development
-- [ ] Phase 4: Architectural Decision
+- [x] Phase 4: Architectural Decision
 - [ ] Phase 5: Unit Planning
 - [ ] Phase 6: Unit Generation
 - [ ] Phase 7: Unit Design Planning
@@ -24,15 +23,15 @@
 - [ ] Phase 12: Unit Code Generation
 
 ## Current Status
-**Phase**: Story Development  
+**Phase**: Architectural Decision  
 **Status**: Complete  
-**Next Action**: Begin Architectural Decision  
-**Last Updated**: 2025-01-28T14:40:00Z
+**Next Action**: Begin Unit Planning  
+**Last Updated**: 2025-01-28T14:45:00Z
 
 ## Architecture Decision
-- **Decision**: TBD
-- **Number of Units**: TBD
-- **Rationale**: TBD
+- **Decision**: Single Service Architecture (Monolith)
+- **Number of Units**: 1 Unit
+- **Rationale**: Development speed priority, single team, operational simplicity, shared database approach
 
 ## Generated Artifacts
 - aidlc-docs/audit.md
@@ -43,3 +42,4 @@
 - aidlc-docs/plans/story-generation-plan.md
 - aidlc-docs/user-stories/personas.md
 - aidlc-docs/user-stories/stories.md
+- aidlc-docs/design/architectural-decisions.md
