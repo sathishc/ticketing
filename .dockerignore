@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+infrastructure/node_modules/
+*/node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Test files
+coverage/
+**/__tests__/
+**/*.test.ts
+**/*.spec.ts
+*.log
+
+# Development files
+.git/
+.gitignore
+README.md
+*.md
+.env*
+.vscode/
+.idea/
+
+# CDK outputs
+infrastructure/cdk.out/
+infrastructure/cdk.context.json
+infrastructure/package-lock.json
+
+# Logs and temp files
+logs/
+*.log
+.DS_Store
+Thumbs.db
+
+# Documentation
+aidlc-docs/
+.amazonq/
+
+# Scripts
+deploy*.sh
+verify*.sh
+check*.js

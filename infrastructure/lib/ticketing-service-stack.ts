@@ -5,11 +5,19 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as elbv2 from 'aws-cdk-lib/aws-elasticloadbalancingv2';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as logs from 'aws-cdk-lib/aws-logs';
+import * as ecr from 'aws-cdk-lib/aws-ecr';
 import { Construct } from 'constructs';
 
 export class TicketingServiceStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    // ECR Repository for the service
+    const repository = new ecr.Repository(this, 'TicketingRepository', {
+      repositoryName: 'ticketing-service',
+      removalPolicy: cdk.RemovalPolicy.RETAIN,
+      imageScanOnPush: true,
+    });
 
     // VPC for the service
     const vpc = new ec2.Vpc(this, 'TicketingVPC', {
@@ -98,15 +106,16 @@ export class TicketingServiceStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
-    // Container Definition
+    // Container Definition - Use ECR repository
     const container = taskDefinition.addContainer('TicketingContainer', {
-      image: ecs.ContainerImage.fromRegistry('node:18-alpine'),
+      image: ecs.ContainerImage.fromEcrRepository(repository, 'latest'),
       logging: ecs.LogDrivers.awsLogs({
         streamPrefix: 'ticketing-service',
         logGroup,
       }),
       environment: {
         NODE_ENV: 'production',
+        PORT: '3000',
         TICKETS_TABLE_NAME: ticketsTable.tableName,
         TICKET_HISTORY_TABLE_NAME: ticketHistoryTable.tableName,
         TICKET_COMMENTS_TABLE_NAME: ticketCommentsTable.tableName,
@@ -163,7 +172,7 @@ export class TicketingServiceStack extends cdk.Stack {
       targetType: elbv2.TargetType.IP,
       healthCheck: {
         enabled: true,
-        path: '/health',
+        path: '/api/v1/health',
         healthyHttpCodes: '200',
         interval: cdk.Duration.seconds(30),
         timeout: cdk.Duration.seconds(5),
@@ -178,10 +187,30 @@ export class TicketingServiceStack extends cdk.Stack {
 
     service.attachToApplicationTargetGroup(targetGroup);
 
+    // Grant DynamoDB permissions
+    ticketsTable.grantReadWriteData(taskDefinition.taskRole);
+    ticketHistoryTable.grantReadWriteData(taskDefinition.taskRole);
+    ticketCommentsTable.grantReadWriteData(taskDefinition.taskRole);
+
     // Outputs
+    new cdk.CfnOutput(this, 'ECRRepositoryURI', {
+      value: repository.repositoryUri,
+      description: 'ECR Repository URI for pushing images',
+    });
+
     new cdk.CfnOutput(this, 'LoadBalancerDNS', {
       value: alb.loadBalancerDnsName,
       description: 'DNS name of the load balancer',
+    });
+
+    new cdk.CfnOutput(this, 'ServiceURL', {
+      value: `http://${alb.loadBalancerDnsName}`,
+      description: 'URL of the ticketing service',
+    });
+
+    new cdk.CfnOutput(this, 'HealthCheckURL', {
+      value: `http://${alb.loadBalancerDnsName}/api/v1/health`,
+      description: 'Health check endpoint',
     });
 
     new cdk.CfnOutput(this, 'TicketsTableName', {

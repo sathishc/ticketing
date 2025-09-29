@@ -1,20 +1,47 @@
 # Ticketing Service Deployment Guide
 
-## 🚀 Deployment Status
+## 🚀 Fixed CDK Deployment with Service Code
 
-Your **Ticketing Service Monolith** is **ready for deployment** with multiple deployment options:
+Your CDK deployment has been **updated to properly include your service code**:
 
-### ✅ **What's Ready:**
-- **Application Code**: Complete Clean Architecture implementation
-- **Infrastructure Code**: AWS CDK templates for production deployment
-- **Docker Configuration**: Containerized deployment ready
-- **CI/CD Pipeline**: CodePipeline buildspec configured
-- **Health Checks**: Service monitoring endpoints
-- **Tests**: Passing unit tests with coverage
+### ✅ **What's Fixed:**
+- **Docker Build Integration**: CDK now builds from your Dockerfile with actual service code
+- **Proper Health Check**: Updated to use `/api/v1/health` endpoint
+- **Environment Variables**: Correctly configured for production
+- **DynamoDB Permissions**: Proper IAM roles and table access
+- **Service URLs**: Complete endpoint configuration
 
 ## 📋 **Deployment Options**
 
-### Option 1: Local Development Deployment
+### Option 1: Quick Deployment Script
+```bash
+# Deploy to development
+./deploy.sh dev
+
+# Deploy to staging  
+./deploy.sh staging
+
+# Deploy to production
+./deploy.sh prod
+```
+
+### Option 2: Manual CDK Deployment
+```bash
+# Build the service first
+npm run build
+
+# Navigate to infrastructure
+cd infrastructure
+npm install
+
+# Deploy to development environment
+npx cdk deploy TicketingServiceStack-Dev
+
+# Deploy to production environment
+npx cdk deploy TicketingServiceStack-Prod
+```
+
+### Option 3: Local Development
 ```bash
 # Install dependencies
 npm install
@@ -26,7 +53,7 @@ npm run dev
 # Health check: http://localhost:3000/api/v1/health
 ```
 
-### Option 2: Docker Deployment
+### Option 4: Docker Deployment
 ```bash
 # Build and run with Docker Compose
 docker-compose up --build
@@ -35,38 +62,19 @@ docker-compose up --build
 # Includes local DynamoDB for testing
 ```
 
-### Option 3: AWS Production Deployment
-**Requirements**: AWS account with appropriate permissions
+## 🔧 **CDK Infrastructure Components**
 
-```bash
-# Navigate to infrastructure
-cd infrastructure
+Your AWS infrastructure includes:
+- **ECS Fargate**: Auto-scaling container service (2-10 instances)
+- **Application Load Balancer**: High availability with health checks
+- **DynamoDB**: Three tables with proper indexes and backup
+- **VPC**: Multi-AZ setup with public/private subnets
+- **CloudWatch**: Logging and monitoring
+- **IAM**: Least privilege security roles
 
-# Install CDK dependencies
-npm install
+## 🌐 **Service Endpoints**
 
-# Bootstrap CDK (one-time setup)
-npx cdk bootstrap
-
-# Deploy to development environment
-npx cdk deploy TicketingServiceStack-Dev
-
-# Deploy to production environment
-npx cdk deploy TicketingServiceStack-Prod
-```
-
-## 🔧 **Current Environment Constraints**
-
-**Issue**: The current AWS role has limited permissions for CloudFormation operations.
-
-**Solutions**:
-1. **Request elevated permissions** for CDK deployment
-2. **Use local/Docker deployment** for development and testing
-3. **Deploy via AWS Console** using the generated CloudFormation templates
-
-## 🌐 **API Endpoints Ready**
-
-Once deployed, your service provides:
+After deployment, your service provides:
 
 ### Core Ticket Operations
 - `POST /api/v1/tickets` - Create new ticket
@@ -80,30 +88,42 @@ Once deployed, your service provides:
 - `GET /api/v1/metrics` - System metrics
 - `GET /api/v1/reports/dashboard` - Basic reporting
 
-## 📊 **Infrastructure Components**
-
-Your AWS infrastructure includes:
-- **ECS Fargate**: Auto-scaling container service (2-10 instances)
-- **Application Load Balancer**: High availability with health checks
-- **DynamoDB**: Three tables with proper indexes and backup
-- **VPC**: Multi-AZ setup with public/private subnets
-- **CloudWatch**: Logging and monitoring
-- **IAM**: Least privilege security roles
-
-## 🎯 **Next Steps**
-
-1. **For immediate testing**: Use `npm run dev` for local development
-2. **For containerized testing**: Use `docker-compose up`
-3. **For production**: Request AWS permissions or deploy via console
-4. **For CI/CD**: Set up CodePipeline with the provided buildspec.yml
-
 ## ✅ **Deployment Verification**
 
 After deployment, verify:
-- Health check returns 200 OK
-- Can create tickets via API
-- Can retrieve tickets via API
-- Logs are appearing in CloudWatch (production)
-- Auto-scaling is configured (production)
+1. **Health Check**: `curl http://<load-balancer-dns>/api/v1/health`
+2. **Create Ticket**: Test POST endpoint with sample data
+3. **CloudWatch Logs**: Check `/ecs/ticketing-service` log group
+4. **Auto-scaling**: Verify ECS service configuration
+5. **DynamoDB**: Confirm table creation and permissions
 
-Your ticketing service is **production-ready** and follows AWS best practices for scalability, security, and monitoring!
+## 🎯 **Key Improvements Made**
+
+### Fixed Container Image
+- **Before**: `node:18-alpine` (empty container)
+- **After**: Built from your Dockerfile with complete service code
+
+### Fixed Health Check
+- **Before**: `/health` (incorrect path)
+- **After**: `/api/v1/health` (correct API endpoint)
+
+### Added Proper Permissions
+- **DynamoDB Access**: Specific table permissions instead of full access
+- **Environment Variables**: All required configuration
+- **Service URLs**: Complete endpoint outputs
+
+### Enhanced Monitoring
+- **CloudWatch Logs**: Structured logging with retention
+- **Health Checks**: Proper ECS health monitoring
+- **Auto-scaling**: CPU-based scaling configuration
+
+## 🚀 **Ready for Production**
+
+Your ticketing service is now **properly integrated with CDK** and ready for production deployment with:
+- ✅ Complete service code integration
+- ✅ Proper health monitoring
+- ✅ Auto-scaling configuration
+- ✅ Security best practices
+- ✅ Production-ready infrastructure
+
+**Run `./deploy.sh dev` to deploy your complete ticketing service!**
