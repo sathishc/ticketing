@@ -25,11 +25,11 @@ export class Container {
 
   private registerRepositories(): void {
     this.register('ticketRepository', () => 
-      new DynamoTicketRepository(this.resolve('dynamoClient').getDocumentClient())
+      new DynamoTicketRepository((this.resolve('dynamoClient') as DynamoDBClientWrapper).getDocumentClient())
     );
     
     this.register('ticketHistoryRepository', () => 
-      new DynamoTicketHistoryRepository(this.resolve('dynamoClient').getDocumentClient())
+      new DynamoTicketHistoryRepository((this.resolve('dynamoClient') as DynamoDBClientWrapper).getDocumentClient())
     );
   }
 
