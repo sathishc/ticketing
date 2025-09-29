@@ -14,6 +14,7 @@
 - [x] Phase 3: Story Development
 - [x] Phase 4: Architectural Decision
 - [x] Phase 5: Unit Planning
+- [x] Phase 6: Unit Generation
 - [ ] Phase 6: Unit Generation
 - [ ] Phase 7: Unit Design Planning
 - [ ] Phase 8: Unit Design Generation
@@ -23,10 +24,10 @@
 - [ ] Phase 12: Unit Code Generation
 
 ## Current Status
-**Phase**: Unit Planning  
+**Phase**: Unit Generation  
 **Status**: Complete  
-**Next Action**: Begin Unit Generation  
-**Last Updated**: 2025-01-28T14:47:00Z
+**Next Action**: Begin Per-Unit Development Loop  
+**Last Updated**: 2025-01-28T14:50:00Z
 
 ## Architecture Decision
 - **Decision**: Single Service Architecture (Monolith)
@@ -40,6 +41,10 @@
 - aidlc-docs/requirements/requirement-verification-questions.md
 - aidlc-docs/requirements/requirements.md
 - aidlc-docs/plans/story-generation-plan.md
+- aidlc-docs/plans/unit-of-work-plan.md
 - aidlc-docs/user-stories/personas.md
 - aidlc-docs/user-stories/stories.md
 - aidlc-docs/design/architectural-decisions.md
+- aidlc-docs/design/unit-of-work.md
+- aidlc-docs/design/unit-of-work-dependency.md
+- aidlc-docs/design/unit-of-work-story-map.md
