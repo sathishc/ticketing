@@ -10,7 +10,8 @@
 - [x] Welcome
 - [x] Initial Setup
 - [x] Phase 1: Requirements Assessment
-- [ ] Phase 2: Story Planning
+- [x] Phase 2: Story Planning
+- [x] Phase 3: Story Development
 - [ ] Phase 3: Story Development
 - [ ] Phase 4: Architectural Decision
 - [ ] Phase 5: Unit Planning
@@ -23,10 +24,10 @@
 - [ ] Phase 12: Unit Code Generation
 
 ## Current Status
-**Phase**: Requirements Assessment  
+**Phase**: Story Development  
 **Status**: Complete  
-**Next Action**: Begin Story Planning  
-**Last Updated**: 2025-01-28T14:35:00Z
+**Next Action**: Begin Architectural Decision  
+**Last Updated**: 2025-01-28T14:40:00Z
 
 ## Architecture Decision
 - **Decision**: TBD
@@ -39,3 +40,6 @@
 - aidlc-docs/requirements/user-intent.md
 - aidlc-docs/requirements/requirement-verification-questions.md
 - aidlc-docs/requirements/requirements.md
+- aidlc-docs/plans/story-generation-plan.md
+- aidlc-docs/user-stories/personas.md
+- aidlc-docs/user-stories/stories.md
